@@ -1,10 +1,11 @@
-from tkinter import *
-from tkinter.filedialog import askopenfile
-from tkinter.ttk import *
 import pandas as pd
-
+from tkinter import *
+from tkinter.ttk import *
+from tkinter.filedialog import askopenfile
 
 root = Tk()
+
+
 
 def ask_open_file_and_get():
     file = askopenfile(mode ='r', filetypes =[('Csv files', '*.csv')])
@@ -26,9 +27,14 @@ def ask_open_file_and_get():
             for k in range(len(cols)):
                 aw.append(str(db[k][p]))
             tree.insert("", END, values=tuple(aw))
-        tree.bind('<<TreeviewSelect>>', lambda p: print(p))
 
         tree.grid(row=0, column=0, sticky='nsew')
+
+        fr1 = Frame(root)
+
+    
+
+        fr1.grid(row=0, column=2)
             
 
 menubar = Menu(root)
