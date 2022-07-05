@@ -5,7 +5,8 @@ from tkinter.filedialog import askopenfile
 
 root = Tk()
 
-
+root.geometry("900x600")
+root.title("CSV reader")
 
 def ask_open_file_and_get():
     file = askopenfile(mode ='r', filetypes =[('Csv files', '*.csv')])
@@ -16,6 +17,10 @@ def ask_open_file_and_get():
         scrollbar = Scrollbar(root, orient=VERTICAL, command=tree.yview)
         tree.configure(yscroll=scrollbar.set)
         scrollbar.grid(row=0, column=1, sticky='ns')
+
+        scrollbar2 = Scrollbar(root, orient=HORIZONTAL, command=tree.xview)
+        tree.configure(xscroll=scrollbar2.set)
+        scrollbar2.grid(row=2, column=0)
         db = []
         for i in cols:
             tree.heading(i, text=i)
